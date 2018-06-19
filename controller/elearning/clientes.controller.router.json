@@ -1,0 +1,14 @@
+[
+    {
+        "ruta":"/get-estudiantes",
+        "descripcion":"",
+        "metodo":"POST",
+        "numero":"0"
+    },
+    {
+        "ruta":"/registrar-estudiante",
+        "descripcion":"",
+        "metodo":"POST",
+        "numero":"1"
+    }
+]

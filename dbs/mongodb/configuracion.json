@@ -1,0 +1,17 @@
+{
+    
+    "dbs": [
+        {
+            "datasource": "mongodb",
+            "conexionprod": {
+                "link": "",
+                "encrypt": true
+            },
+            "conexiondev": {
+                "link": "",
+                "encrypt": false
+            },
+            "conexionuse": "prod"
+        }
+    ]
+}
