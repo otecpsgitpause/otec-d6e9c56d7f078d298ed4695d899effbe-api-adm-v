@@ -13,6 +13,7 @@ var modelSchema = new schema({
     descripcionCorta:String,
     opcionesTermino:String,
     totalHoras:Number,
+    totalHorasSegundos:{type:Number,default:0},
     codigoVenta:String,
     venta:Boolean,
     definido:Boolean,
