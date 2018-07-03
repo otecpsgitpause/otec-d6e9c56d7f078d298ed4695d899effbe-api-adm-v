@@ -183,6 +183,7 @@ secureRouter.post(rutas[0].ruta, (req, res, next) => {
         ];
         const sequence = new Sequence(steps, { interval: 1000 });
         sequence.on('success', (data, index) => {
+            console.log({data:data,index:index});
             if (index == 0) {
              
                 respuesta.sendDev({ req: req, res: res, code: 200, respuesta: true });
