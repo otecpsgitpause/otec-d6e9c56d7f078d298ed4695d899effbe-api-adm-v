@@ -28,5 +28,11 @@
         "descripcion":"",
         "metodo":"POST",
         "numero":"4"
+    },
+    {
+        "ruta":"/actualizar-contenidos-clase",
+        "descripcion":"",
+        "metodo":"POST",
+        "numero":"5"
     }
 ]
