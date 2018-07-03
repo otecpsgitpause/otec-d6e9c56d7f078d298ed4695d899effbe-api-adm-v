@@ -164,8 +164,9 @@ secureRouter.post(rutas[0].ruta, (req, res, next) => {
                     param.docClase.contenidos.forEach((contenido) => {
                         console.log({contenidoUpddate:contenido});
                         schemaContenido.updateOne({"_id":contenido._id},contenido).then((update)=>{
-                            contador=contador+1;
+                            
                         })
+                        contador=contador+1;
 
                         if(contador==param.docClase.contenidos.length){
                             resolve(true);
