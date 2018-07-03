@@ -146,6 +146,66 @@ secureRouter.post(rutas[0].ruta, (req, res, next) => {
      } catch (e) {
         respuesta.sendDev({ req: req, res: res, code: 500, respuesta: false });
     }
+}).post(rutas[5].ruta, (req, res, next) => {
+    /**
+    * Método actualiza las horas de los contenidos de una clase
+    * @param param
+    */
+
+    try {
+
+        let data = req.body.data;
+        let param = data.param
+
+        let secuencia={
+            actualizaContenidos:()=>{
+                return new Promise((resolve,reject)=>{
+                    let contador=0;
+                    param.docClase.contenidos.forEach((contenido) => {
+                        schemaContenido.updateOne({"_id":contenido._id},contenido).then((update)=>{
+                            contador=contador+1;
+                        })
+
+                        if(contador==param.docClase.contenidos.length){
+                            resolve(true);
+                        }
+                    });
+                    if(param.docClase.contenidos.length==0){
+                        resolve(true);
+                    }
+                })
+            }
+        }
+
+        const steps = [
+            secuencia.actualizaContenidos
+        ];
+        const sequence = new Sequence(steps, { interval: 1000 });
+        sequence.on('success', (data, index) => {
+            if (index == 0) {
+             
+                respuesta.sendDev({ req: req, res: res, code: 200, respuesta: true });
+            }
+            // execute when each step in sequence succeed
+        });
+
+        sequence.on('failed', (data, index) => {
+            console.log({ failed: data, index: index });
+            // execute when each step in sequence failed
+        });
+
+        sequence.on('end', () => {
+            // execute after finishing all steps in the sequence
+
+
+
+        });
+
+    } catch (e) {
+        respuesta.sendDev({ req: req, res: res, code: 500, respuesta: false });
+    }
+
+
 })
 
 
